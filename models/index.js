@@ -1,3 +1,7 @@
-const Business = require("./Business");
+const entries = require('./entries');
+const users = require('./users');
 
-module.exports = { Business }
+entries.belongsTo(users);
+users.hasMany(entries);
+
+module.exports = { entries, users };

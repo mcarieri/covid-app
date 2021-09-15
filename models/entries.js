@@ -1,12 +1,14 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Business extends Model {};
+class Entries extends Model {};
 
-Business.init(
+Entries.init(
   {
-    name: DataTypes.STRING,
-    // columns: DataTypes.INTEGER, etc
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     mask: DataTypes.INTEGER,
     distance: DataTypes.INTEGER,
     sanitizer: DataTypes.INTEGER,
@@ -18,4 +20,4 @@ Business.init(
   }
 );
 
-module.exports = Business;
+module.exports = entries;
