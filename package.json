@@ -1,0 +1,26 @@
+{
+  "name": "covid-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcarieri/covid-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcarieri/covid-app/issues"
+  },
+  "homepage": "https://github.com/mcarieri/covid-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "inquirer": "^8.1.4",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.0"
+  }
+}
