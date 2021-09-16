@@ -38,7 +38,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const html_routes = require('./routes/html_routes');
+const html_routes = require('./routes/html/htmlRoutes');
 app.use(html_routes);
 
 // app.use(require('./controllers/'));
