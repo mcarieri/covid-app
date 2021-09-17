@@ -13,7 +13,8 @@ Entries.init(
       type: DataTypes.INTEGER
     },
     date: {
-      type: DataTypes.DATE,
+      // make browser choose date, change to string
+      type: DataTypes.STRING,
       allowNull: false
     },
     mask: DataTypes.INTEGER,
@@ -27,4 +28,4 @@ Entries.init(
   }
 );
 
-module.exports = entries;
+module.exports = Entries;
