@@ -35,6 +35,8 @@ router.post('/', ({ body }, res) => {
   const { UserId, name, zipcode, date, mask, distance, sanitizer, patrons, comment } = body;
   Entries.create(
     {
+      // comment in when login is functional
+      // UserId = req.session.user_id,
       UserId,
       name,
       zipcode,
