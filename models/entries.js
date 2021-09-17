@@ -10,10 +10,12 @@ Entries.init(
       allowNull: false
     },
     zipcode: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     date: {
-      type: DataTypes.DATE,
+      // make browser choose date, change to string
+      type: DataTypes.STRING,
       allowNull: false
     },
     mask: DataTypes.INTEGER,
@@ -27,4 +29,4 @@ Entries.init(
   }
 );
 
-module.exports = entries;
+module.exports = Entries;
