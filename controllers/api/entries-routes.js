@@ -2,14 +2,14 @@ const router = require('express').Router();
 const { Entries } = require('../../models');
 
 // GET all entries
-router.get('/api/entries', (req, res) => {
+router.get('/', (req, res) => {
   Entries.findAll({}).then(entries => {
     res.json(entries);
   });
 });
 
 // GET entries by id
-router.get('/api/entries/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   Entries.findOne({
     where: {
       id: req.params.id
@@ -20,7 +20,7 @@ router.get('/api/entries/:id', (req, res) => {
 });
 
 // GET entries by zipcode
-router.get('/api/entries/:zipcode', (req, res) => {
+router.get('/:zipcode', (req, res) => {
   Entries.findAll({
     where: {
       zipcode: req.params.zipcode
@@ -31,10 +31,11 @@ router.get('/api/entries/:zipcode', (req, res) => {
 });
 
 // POST entries
-router.post('/api/entries', ({ body }, res) => {
-  const { name, zipcode, date, mask, distance, sanitizer, patrons, comment } = body;
+router.post('/', ({ body }, res) => {
+  const { UserId, name, zipcode, date, mask, distance, sanitizer, patrons, comment } = body;
   Entries.create(
     {
+      UserId,
       name,
       zipcode,
       date,

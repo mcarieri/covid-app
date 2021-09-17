@@ -1,7 +1,7 @@
-const entries = require('./entries');
-const users = require('./users');
+const Entries = require('./entries');
+const Users = require('./users');
 
-entries.belongsTo(users);
-users.hasMany(entries);
+Entries.belongsTo(Users);
+Users.hasMany(Entries);
 
-module.exports = { entries, users };
+module.exports = { Entries, Users };
