@@ -32,10 +32,12 @@ router.get('/:zipcode', (req, res) => {
 
 // POST entries
 router.post('/', ({ body }, res) => {
-  const { name, zipcode, date, mask, distance, sanitizer, patrons, comment } = body;
+  const { UserId, name, zipcode, date, mask, distance, sanitizer, patrons, comment } = body;
   Entries.create(
     {
-      UserId = req.session.user_id,
+      // comment in when login is functional
+      // UserId = req.session.user_id,
+      UserId,
       name,
       zipcode,
       date,
