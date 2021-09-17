@@ -1,8 +1,10 @@
 const express = require('express');
 // const routes = require('./routes');
 const sequelize = require('./config/connection');
-// temp
+
+// temp const
 const db = require('./models')
+// temp const end
 
 const path = require('path');
 

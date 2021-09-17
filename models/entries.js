@@ -9,6 +9,13 @@ Entries.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    zipcode: {
+      type: DataTypes.INTEGER
+    },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
     mask: DataTypes.INTEGER,
     distance: DataTypes.INTEGER,
     sanitizer: DataTypes.INTEGER,

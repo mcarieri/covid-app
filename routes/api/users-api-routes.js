@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const User = require('../models/User');
-const Entries = require('../models/Entries');
+const Users = require('../models/users');
+const Entries = require('../models/entries');
 
 // GET all users
 router.get('/api/user', (req, res) => {
@@ -10,5 +10,11 @@ router.get('/api/user', (req, res) => {
 });
 
 router.get('/api/user/:id', (req, res) => {
-  
-})
+  User.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(users => {
+    res.json(users);
+  });
+});
