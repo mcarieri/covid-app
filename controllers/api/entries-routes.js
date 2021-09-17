@@ -48,3 +48,5 @@ router.post('/api/entries', ({ body }, res) => {
       res.json(dbres)
   });
 });
+
+module.exports = router;
