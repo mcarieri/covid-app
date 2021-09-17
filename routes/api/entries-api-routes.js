@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const User = require('../models/user');
-const Entries = require('../models/entries');
+const { Entries } = require('../../models');
 
 // GET all entries
 router.get('/api/entries', (req, res) => {
@@ -45,7 +44,7 @@ router.post('/api/entries', ({ body }, res) => {
       patrons,
       comment
     }
-  ).then(entries => {
-      res.json(res)
+  ).then(dbres => {
+      res.json(dbres)
   });
 });

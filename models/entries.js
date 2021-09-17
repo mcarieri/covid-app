@@ -10,7 +10,8 @@ Entries.init(
       allowNull: false
     },
     zipcode: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     date: {
       // make browser choose date, change to string
