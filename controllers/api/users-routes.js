@@ -27,6 +27,29 @@ router.get('/:id', (req, res) => {
   ;
 });
 
+// login
+router.post('/:login', (req, res) => {
+  Users.findOne({
+    where: {
+      name: req.body.username,
+      password: req.body.password
+    }
+  }).then(dbUserData => {
+    console.log(dbUserData);
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.name = dbUserData.name;
+      req.session.email = dbUserData.email;
+      req.session.loggedIn = true;    
+      console.log(req.session.user_id, req.session.name);
+      res.json(dbUserData);
+    });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
 router.post('/', (req, res) => {
   console.log(req.body);
   Users.create({

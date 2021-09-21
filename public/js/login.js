@@ -1,9 +1,10 @@
 const loginFormHandler = async function(event) {
   event.preventDefault();
 
-  const usernameEl = document.querySelector("#username-input-login");
-  const passwordEl = document.querySelector("#password-input-login");
-  fetch("/api/user/login", {
+  const usernameEl = document.querySelector("#username-login");
+  const passwordEl = document.querySelector("#password-login");
+
+  fetch("/api/users", {
     method: "post",
     body: JSON.stringify({
       username: usernameEl.value,
@@ -12,6 +13,7 @@ const loginFormHandler = async function(event) {
     headers: { "Content-Type": "application/json" }
   })
     .then(function() {
+      console.log('LOGIN ROUTE');
       document.location.replace("/dashboard");
     })
     .catch(err => console.log(err));
@@ -19,4 +21,5 @@ const loginFormHandler = async function(event) {
 
 document
   .querySelector("#login-form")
-  .addEventListener("submit", loginFormHandler);
+  .addEventListener("click", loginFormHandler);
+console.log('Login JS file loaded')
