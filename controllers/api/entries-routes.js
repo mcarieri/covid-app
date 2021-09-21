@@ -43,13 +43,11 @@ router.get('/:zipcode', (req, res) => {
 });
 
 // POST entries
-router.post('/', ({ body }, res) => {
-  const { UserId, name, zipcode, date, mask, distance, sanitizer, patrons, comment } = body;
+router.post('/', (req, res) => {
+  const { name, zipcode, date, mask, distance, sanitizer, patrons, comment } = req.body;
   Entries.create(
     {
-      // comment in when login is functional
-      // UserId = req.session.user_id,
-      UserId,
+      UserId: req.session.user_id,
       name,
       zipcode,
       date,
@@ -60,6 +58,7 @@ router.post('/', ({ body }, res) => {
       comment
     }
   ).then(dbres => {
+      console.log(dbres)
       res.json(dbres)
   })
   .catch(err => {
