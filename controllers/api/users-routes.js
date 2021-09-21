@@ -28,20 +28,23 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   Users.create({
     name: req.body.name,
     email: req.body.email,
     password: req.body.password
   })
     .then(dbUserData => {
+   dbUserData = dbUserData.get({plain:true})
+    console.log(dbUserData);
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
-        req.session.username = dbUserData.username;
-        req.session.loggedIn = true;
-  
+        req.session.name = dbUserData.name;
+        req.session.email = dbUserData.email;
+        req.session.loggedIn = true;    
+        console.log(req.session.user_id, req.session.name);
         res.json(dbUserData);
       });
-      res.json(dbUserData);
     })
     .catch(err => {
       console.log(err);

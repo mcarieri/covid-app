@@ -19,8 +19,14 @@ router.get('/post', function(req, res) {
     res.render('post');
 });
 
-// router.get('/dashboard', function(req, res) {
-//     res.render('dashboard');
-// });
+router.get('/dashboard', function(req, res) {
+    let user = {
+        id: req.session.user_id,
+        name: req.session.name,
+        email: req.session.email
+    }
+    console.log(user);
+    res.render('dashboard',user);
+});
 
 module.exports = router;
