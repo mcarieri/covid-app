@@ -5,6 +5,10 @@ const { Users } = require('../../models');
 router.get('/', (req, res) => {
   Users.findAll({}).then(users => {
     res.json(users);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   });
 });
 
@@ -16,7 +20,11 @@ router.get('/:id', (req, res) => {
     }
   }).then(users => {
     res.json(users);
-  });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
+  ;
 });
 
 router.post('/', (req, res) => {
