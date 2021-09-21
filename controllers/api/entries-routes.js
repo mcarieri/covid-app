@@ -5,6 +5,10 @@ const { Entries } = require('../../models');
 router.get('/', (req, res) => {
   Entries.findAll({}).then(entries => {
     res.json(entries);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   });
 });
 
@@ -16,6 +20,10 @@ router.get('/:id', (req, res) => {
     }
   }).then(entries => {
     res.json(entries);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   });
 });
 
@@ -27,6 +35,10 @@ router.get('/:zipcode', (req, res) => {
     }
   }).then(zipcode => {
     res.json(zipcode);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   });
 });
 
@@ -49,6 +61,10 @@ router.post('/', ({ body }, res) => {
     }
   ).then(dbres => {
       res.json(dbres)
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   });
 });
 
