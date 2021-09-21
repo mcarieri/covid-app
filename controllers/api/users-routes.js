@@ -28,21 +28,33 @@ router.get('/:id', (req, res) => {
 });
 
 // login
-router.post('/:login', (req, res) => {
+router.post('/login', (req, res) => {
   Users.findOne({
     where: {
-      name: req.body.username,
-      password: req.body.password
+      name: req.body.name,
     }
   }).then(dbUserData => {
-    console.log(dbUserData);
+
+    if (!dbUserData) {
+      res.status(400).json({ message: 'No user with that email address!' });
+      return;
+    }
+
+    const validPassword = dbUserData.checkPassword(req.body.password)
+    
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
+
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       req.session.name = dbUserData.name;
       req.session.email = dbUserData.email;
-      req.session.loggedIn = true;    
+      req.session.loggedIn = true;
+
       console.log(req.session.user_id, req.session.name);
-      res.json(dbUserData);
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
   }).catch(err => {
     console.log(err);
