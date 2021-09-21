@@ -13,7 +13,7 @@
         <!--Left Col-->
         <div class="flex flex-col w-full xl:w-3/5 justify-center lg:items-start overflow-y-hidden">
           <h1 class="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">
-            Check your favorite
+            check your favorite
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
               spots
             </span>
@@ -31,7 +31,7 @@
               </label>
               <input
                 class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                id="username"
+                id="username-signup"
                 type="text"
                 placeholder="John123"
               />
@@ -41,7 +41,7 @@
               </label>
               <input
                 class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                id="emailaddress"
+                id="emailaddress-signup"
                 type="text"
                 placeholder="you@somewhere.com"
               />
@@ -51,7 +51,7 @@
               </label>
               <input
                 class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                id="password"
+                id="password-signup"
                 type="text"
                 placeholder="*********"
               />
@@ -70,20 +70,23 @@
 
             <div class="flex items-center justify-between pt-4">
               <button
+                id="signup-form"
                 class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
                 type="button">
                 Sign Up
               </button>
+              or
+              <button
+                class="justify-end bg-gradient-to-r from-blue-800 to-blue-500 hover:from-green-500 hover:to-blue-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                type="button">
+                Sign In Here
+              </button>
             </div>
           </form>
         </div>
-
-
-        <!--Footer-->
-        <div class="w-full pt-16 pb-6 text-sm text-center md:text-left fade-in">
-          <a class="text-gray-500 no-underline hover:no-underline" href="#">&copy; App 2020</a>
-          - Template by
-          <a class="text-gray-500 no-underline hover:no-underline" href="https://www.tailwindtoolbox.com">TailwindToolbox.com</a>
         </div>
       </div>
     </div>
+
+    <script src="/js/signup.js">
+    </script>
