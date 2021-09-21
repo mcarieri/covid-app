@@ -20,8 +20,8 @@ Entries.init(
     },
     mask: DataTypes.INTEGER,
     distance: DataTypes.INTEGER,
-    sanitizer: DataTypes.INTEGER,
-    patrons: DataTypes.INTEGER,
+    sanitizer: DataTypes.BOOLEAN,
+    patrons: DataTypes.BOOLEAN,
     comment: DataTypes.TEXT
   }, 
   {
