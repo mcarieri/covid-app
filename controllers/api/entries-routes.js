@@ -44,7 +44,7 @@ router.get('/:zipcode', (req, res) => {
 
 // POST entries
 router.post('/', (req, res) => {
-  const { name, zipcode, date, mask, distance, sanitizer, patrons, comment } = req.body;
+  const { name, zipcode, date, mask, distance, sanitizer, vaccineCard, comment } = req.body;
   Entries.create(
     {
       UserId: req.session.user_id,
@@ -54,7 +54,7 @@ router.post('/', (req, res) => {
       mask,
       distance,
       sanitizer,
-      patrons,
+      vaccineCard,
       comment
     }
   ).then(dbres => {

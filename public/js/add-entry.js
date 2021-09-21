@@ -9,7 +9,7 @@ async function newEntryHandler() {
     let sanitizer = document.querySelector('select[name="entry-sanitizer"]').value;
     let vaccineCard = document.querySelector('select[name="entry-card"]').value;
     const comment = document.querySelector('textarea[name="entry-comment"]').value;
-    
+
     if (sanitizer === 'Yes') {
         sanitizer = 1
     } else {
