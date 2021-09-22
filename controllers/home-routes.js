@@ -1,3 +1,4 @@
+const { Entries } = require('../models');
 let router = require('express').Router();
 router.get('/', function(req, res) {
     res.render('index');
@@ -27,6 +28,19 @@ router.get('/dashboard', function(req, res) {
     }
     console.log(user);
     res.render('dashboard',user);
+});
+
+router.get('/zipcode/:zipcode', (req, res) => {
+    Entries.findAll({
+        where: {
+            zipcode: req.params.zipcode
+        }
+    }).then(dbRes => {
+        // res.json(dbRes);
+        dbRes = dbRes.get({ plain: true });
+        res.render('search-results', { data: dbRes });
+        console.log(dbRes);
+    });
 });
 
 module.exports = router;
