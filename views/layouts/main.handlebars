@@ -63,10 +63,16 @@
                             class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Search
                             </a>
                         {{!-- nav bar links --}}
+                        {{#if loggedIn }}
+                          <button href="/logout"
+                            class="border-none text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="logout">Log Out
+                            </button>
+                        {{else}}
                         <a href="/login"
                             class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign
                             In
                             </a>
+                        {{/if}}
                         <a href="/post"
                             class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add Business
                             </a>
@@ -81,5 +87,7 @@
     {{{ body }}}
 </main>
 </body>
-
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
 </html>
