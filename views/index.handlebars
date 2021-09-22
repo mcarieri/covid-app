@@ -1,92 +1,83 @@
 <div class="h-full">
-      <!--Nav-->
-      <div class="w-full container mx-auto my-8">
-        <div class="w-full flex items-center justify-between">
-          <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-            COVID VENUE <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">&nbsp;TRACKER</span>
+  <!--Nav-->
+  <div class="w-full container mx-auto my-8">
+    <div class="w-full flex items-center justify-between">
+      <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+        href="#">
+        COVID VENUE <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">&nbsp;TRACKER</span>
+      </a>
+    </div>
+  </div>
+
+  <!--Main-->
+  <div>
+    <!--Left Col-->
+    <div class="flex flex-col w-full xl:w-3/5 justify-center lg:items-start overflow-y-hidden">
+      <h1 class="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">
+        check your favorite
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
+          spots
+        </span>
+        for covid related info.
+      </h1>
+
+      <form class="bg-gray-900 opacity-75 w-full shadow-lg rounded-lg px-10 pt-6 pb-8 my-10">
+        <div class="mb-4">
+
+          <label class="block text-lg text-white py-2 font-bold my-3">
+            Sign up to join
+          </label>
+          <label class="block text-blue-300 py-2 font-bold my-3" for="emailaddress">
+            Username
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+            id="username-signup" type="text" placeholder="John123" />
+
+          <label class="block text-blue-300 py-2 font-bold my-3" for="emailaddress">
+            Email
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+            id="emailaddress-signup" type="text" placeholder="you@somewhere.com" />
+
+          <label class="block text-blue-300 py-2 font-bold my-3" for="emailaddress">
+            Password
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+            id="password-signup" type="password" placeholder="*********" />
+
+          {{!-- <label class="block text-blue-300 py-2 font-bold mb-2" for="emailaddress">
+            City
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+            id="city" type="text" placeholder="Los Angeles" /> --}}
+
+        </div>
+
+        <div class="flex items-center justify-between pt-4">
+          <button id="signup-form"
+            class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+            type="button">
+            Sign Up
+          </button>
+          or
+          <a href="/login">
+            <button
+              class="justify-end bg-gradient-to-r from-blue-800 to-blue-500 hover:from-green-500 hover:to-blue-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+              type="button">
+              Sign In Here
+            </button>
           </a>
         </div>
-      </div>
-
-      <!--Main-->
-      <div>
-        <!--Left Col-->
-        <div class="flex flex-col w-full xl:w-3/5 justify-center lg:items-start overflow-y-hidden">
-          <h1 class="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">
-            check your favorite
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
-              spots
-            </span>
-            for covid related info.
-          </h1>
-
-          <form class="bg-gray-900 opacity-75 w-full shadow-lg rounded-lg px-10 pt-6 pb-8 my-10">
-            <div class="mb-4">
-              
-              <label class="block text-lg text-white py-2 font-bold my-3">
-                Sign up to join
-              </label>
-              <label class="block text-blue-300 py-2 font-bold my-3" for="emailaddress">
-                Username
-              </label>
-              <input
-                class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                id="username-signup"
-                type="text"
-                placeholder="John123"
-              />
-
-              <label class="block text-blue-300 py-2 font-bold my-3" for="emailaddress">
-                Email
-              </label>
-              <input
-                class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                id="emailaddress-signup"
-                type="text"
-                placeholder="you@somewhere.com"
-              />
-
-              <label class="block text-blue-300 py-2 font-bold my-3" for="emailaddress">
-                Password
-              </label>
-              <input
-                class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                id="password-signup"
-                type="text"
-                placeholder="*********"
-              />
-              
-              {{!-- <label class="block text-blue-300 py-2 font-bold mb-2" for="emailaddress">
-                City
-              </label>
-              <input
-                class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                id="city"
-                type="text"
-                placeholder="Los Angeles"
-              /> --}}
-              
-            </div>
-
-            <div class="flex items-center justify-between pt-4">
-              <button
-                id="signup-form"
-                class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                type="button">
-                Sign Up
-              </button>
-              or
-              <button
-                class="justify-end bg-gradient-to-r from-blue-800 to-blue-500 hover:from-green-500 hover:to-blue-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                type="button">
-                Sign In Here
-              </button>
-            </div>
-          </form>
-        </div>
-        </div>
-      </div>
+      </form>
     </div>
+  </div>
+</div>
+</div>
 
-    <script src="/js/signup.js">
-    </script>
+<script src="/js/signup.js">
+</script>
