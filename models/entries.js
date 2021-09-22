@@ -21,7 +21,7 @@ Entries.init(
     mask: DataTypes.INTEGER,
     distance: DataTypes.INTEGER,
     sanitizer: DataTypes.BOOLEAN,
-    patrons: DataTypes.BOOLEAN,
+    vaccineCard: DataTypes.BOOLEAN,
     comment: DataTypes.TEXT
   }, 
   {
