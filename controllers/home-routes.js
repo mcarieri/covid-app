@@ -2,7 +2,7 @@ const { Entries } = require('../models');
 let router = require('express').Router();
 const withAuth = require('../utils/withAuth')
 const alreadyLoggedIn = require('../utils/loggedIn')
-const getStars = require('../utils/getStars')
+const modifyData = require('../utils/modifyData')
 
 
 router.get('/', alreadyLoggedIn, function (req, res) {
@@ -13,37 +13,7 @@ router.get('/', alreadyLoggedIn, function (req, res) {
         // dbRes = dbRes.get({ plain: true }) // broken
         let data = dbRes.map(entry => entry.get({ plain: true }));
         
-        let modifiedData = [];
-
-        for (let i=0; i<data.length; i++) {
-
-        let { name, zipcode, date, mask, distance, vaccineCard, sanitizer, comment  } = data[i]
-            
-            if (vaccineCard) {
-                vaccineCard = 'Yes'
-            } else {
-                vaccineCard = 'No'
-            }
-            if (sanitizer) {
-                sanitizer = 'Yes'
-            } else {
-                sanitizer = 'No'
-            }
-
-            mask = getStars(mask);
-            distance = getStars(distance)
-
-            modifiedData.push({
-                name,
-                zipcode,
-                date,
-                mask,
-                distance,
-                vaccineCard,
-                sanitizer,
-                comment
-            })
-        }
+       let modifiedData = modifyData(data)
         
         res.render('index', { modifiedData, splashPage: true });
         // console.log(dbRes);
@@ -57,8 +27,10 @@ router.get('/index', alreadyLoggedIn, function (req, res) {
         
         // dbRes = dbRes.get({ plain: true }) // broken
         const data = dbRes.map(entry => entry.get({ plain: true }));
+        
+        let modifiedData = modifyData(data)
 
-        res.render('index', { data, splashPage: true});
+        res.render('index', { modifiedData, splashPage: true});
         // console.log(dbRes);
     });
 });
@@ -90,7 +62,9 @@ router.get('/zipcode/:zipcode', withAuth, (req, res) => {
         // dbRes = dbRes.get({ plain: true }) // broken
         const data = dbRes.map(entry => entry.get({ plain: true }));
 
-        res.render('search-results', { data, id: true});
+        let modifiedData = modifyData(data)
+
+        res.render('search-results', { modifiedData, id: true});
         // console.log(dbRes);
     });
 });

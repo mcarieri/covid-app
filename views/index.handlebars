@@ -76,35 +76,41 @@
         </div>
       </form>
   
-      <div class="relative p-16 pb-32 rounded text-purple space-y-6 overflow-hidden">
+      <div class="relative p-16 pb-32 rounded space-y-10 overflow-hidden">
           <div class="absolute left-0 right-0">
              <div class="scroller flex space-x-1 whitespace text-gray-300 text-xs">
                 <table>
                     <tbody class="bg-white divide-y divide-gray-200">
                        {{#each modifiedData}}
                           <tr>
-                            <td class="px-6 py-4 whitespace-normal">
+                            <td class="px-4 py-4 whitespace-normal">
                               <div class="flex items-center">
-                                <div class="ml-4">
+                                <div class="ml-2">
                                   <div class="text-sm font-medium text-gray-900">                      
                                     {{name}}
                                   </div>
                                 </div>
                               </div>
                             </td>
-                            <td class="px-6 py-4 whitespace-normal">
+                            <td class="px-3 py-4 whitespace-normal">
+                              <div class="text-sm text-center text-gray-500">{{zipcode}}</div>
+                            </td>
+                            <td class="px-3 py-4 whitespace-normal">
+                              <div class="text-sm text-center text-gray-500">{{date}}</div>
+                            </td>
+                            <td class="px-3 py-4 whitespace-normal">
                               <div class="text-sm text-center text-gray-500">{{{mask}}}</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-normal">
+                            <td class="px-3 py-4 whitespace-normal">
                               <div class="text-sm text-center text-gray-500">{{{distance}}}</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-normal">
+                            <td class="px-3 py-4 whitespace-normal">
                             <div class="text-sm text-center text-gray-500">{{sanitizer}}</div>
                           </td>
-                          <td class="px-6 py-4 whitespace-normal">
+                          <td class="px-3 py-4 whitespace-normal">
                             <div class="text-sm text-center text-gray-500">{{vaccineCard}}</div>
                           </td>
-                          <td class="px-6 py-4 whitespace-normal">
+                          <td class="px-3 py-4 whitespace-normal">
                             <div class="text-sm text-left text-gray-500">{{comment}}</div>
                           </td>
                       {{/each}}
