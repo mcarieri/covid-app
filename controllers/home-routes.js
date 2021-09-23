@@ -2,6 +2,8 @@ const { Entries } = require('../models');
 let router = require('express').Router();
 const withAuth = require('../utils/withAuth')
 const alreadyLoggedIn = require('../utils/loggedIn')
+const getStars = require('../utils/getStars')
+
 
 router.get('/', alreadyLoggedIn, function (req, res) {
     Entries.findAll({
@@ -9,14 +11,46 @@ router.get('/', alreadyLoggedIn, function (req, res) {
         // res.json(dbRes);
         
         // dbRes = dbRes.get({ plain: true }) // broken
-        const data = dbRes.map(entry => entry.get({ plain: true }));
+        let data = dbRes.map(entry => entry.get({ plain: true }));
+        
+        let modifiedData = [];
 
-        res.render('index', { data, splashPage: true });
+        for (let i=0; i<data.length; i++) {
+
+        let { name, zipcode, date, mask, distance, vaccineCard, sanitizer, comment  } = data[i]
+            
+            if (vaccineCard) {
+                vaccineCard = 'Yes'
+            } else {
+                vaccineCard = 'No'
+            }
+            if (sanitizer) {
+                sanitizer = 'Yes'
+            } else {
+                sanitizer = 'No'
+            }
+
+            mask = getStars(mask);
+            distance = getStars(distance)
+
+            modifiedData.push({
+                name,
+                zipcode,
+                date,
+                mask,
+                distance,
+                vaccineCard,
+                sanitizer,
+                comment
+            })
+        }
+        
+        res.render('index', { modifiedData, splashPage: true });
         // console.log(dbRes);
     });
 });
 
-router.get('/index', function (req, res) {
+router.get('/index', alreadyLoggedIn, function (req, res) {
     Entries.findAll({
     }).then(dbRes => {
         // res.json(dbRes);
