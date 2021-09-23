@@ -1,5 +1,7 @@
 const { Entries } = require('../models');
 let router = require('express').Router();
+const withAuth = require('../utils/withAuth')
+
 router.get('/', function (req, res) {
     res.render('index');
 });
@@ -16,32 +18,26 @@ router.get('/login', function (req, res) {
     res.render('login');
 });
 
-router.get('/post', function (req, res) {
-    res.render('post');
+router.get('/post', withAuth, function (req, res) {
+    res.render('post', {id: true});
 });
 
-router.get('/dashboard', function (req, res) {
-    let user = {
-        id: req.session.user_id,
-        name: req.session.name,
-        email: req.session.email
-    }
-    console.log(user);
-    res.render('dashboard', user);
+router.get('/dashboard', withAuth, function (req, res) {
+    res.render('dashboard', {id: true});
 });
 
-router.get('/zipcode/:zipcode', (req, res) => {
+router.get('/zipcode/:zipcode', withAuth, (req, res) => {
     Entries.findAll({
         where: {
             zipcode: req.params.zipcode
         }
     }).then(dbRes => {
         // res.json(dbRes);
-
+        
         // dbRes = dbRes.get({ plain: true }) // broken
         const data = dbRes.map(entry => entry.get({ plain: true }));
 
-        res.render('search-results', { data });
+        res.render('search-results', { data, id: true});
         // console.log(dbRes);
     });
 });

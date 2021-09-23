@@ -1,6 +1,6 @@
 <div class="h-full">
   <!--Nav-->
-  <div class="w-full container mx-auto my-8">
+  {{!-- <div class="w-full container mx-8 my-8">
     <div class="w-full flex items-center justify-between">
       <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
         href="#">
@@ -8,14 +8,15 @@
           class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">&nbsp;TRACKER</span>
       </a>
     </div>
-  </div>
+  </div> --}}
 
   <!--Main-->
   <div>
     <!--Left Col-->
-    <div class="flex flex-col w-full xl:w-3/5 justify-center lg:items-start overflow-y-hidden">
-      <h1 class="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">
-        check your favorite
+    <div class="flex flex-col w-full xl:w-full justify-center lg:items-center overflow-y-hidden">
+      <h1
+        class="my-4 mx-auto text-4xl md:text-3xl text-white opacity-75 font-bold leading-tight text-center md:text-center">
+        Check your favorite
         <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
           spots
         </span>
@@ -33,21 +34,21 @@
           </label>
           <input
             class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-            id="username-signup" type="text" placeholder="John123" required="required"/>
+            id="username-signup" type="text" placeholder="John123" required="required" />
 
           <label class="block text-blue-300 py-2 font-bold my-3" for="emailaddress">
             Email
           </label>
           <input
             class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-            id="emailaddress-signup" type="email" placeholder="you@somewhere.com" required="required"/>
+            id="emailaddress-signup" type="email" placeholder="you@somewhere.com" required="required" />
 
           <label class="block text-blue-300 py-2 font-bold my-3" for="password">
             Password
           </label>
           <input
             class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-            id="password-signup" type="password" placeholder="*********" required="required"/>
+            id="password-signup" type="password" placeholder="*********" required="required" />
 
           {{!-- <label class="block text-blue-300 py-2 font-bold mb-2" for="emailaddress">
             City
@@ -76,8 +77,20 @@
       </form>
     </div>
   </div>
+  <div class="relative w-4/5 p-16 pb-32 rounded text-purple space-y-6 overflow-hidden">
+  {{!-- scrolling list goes here --}}
+  <div class="absolute bottom-2 left-0 right-0">
+    <div class="scroller flex space-x-1 whitespace text-gray-300 text-xs">
+   <a class="bg-gray-600 py-1 px-3 rounded">scrolling list here</a>
+   <a class="bg-gray-600 py-1 px-3 rounded">scrolling list here</a>
+   <a class="bg-gray-600 py-1 px-3 rounded">scrolling list here</a>
+   <a class="bg-gray-600 py-1 px-3 rounded">scrolling list here</a>
+    </div>
+  </div>
+  </div>
+  </div>
 </div>
 </div>
 
 <script src="/js/signup.js"><script>
-<script src="/js/login.js"></script>
+    <script src="/js/login.js"></script>
