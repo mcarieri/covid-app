@@ -1,13 +1,32 @@
 const { Entries } = require('../models');
 let router = require('express').Router();
 const withAuth = require('../utils/withAuth')
+const alreadyLoggedIn = require('../utils/loggedIn')
 
-router.get('/', function (req, res) {
-    res.render('index');
+router.get('/', alreadyLoggedIn, function (req, res) {
+    Entries.findAll({
+    }).then(dbRes => {
+        // res.json(dbRes);
+        
+        // dbRes = dbRes.get({ plain: true }) // broken
+        const data = dbRes.map(entry => entry.get({ plain: true }));
+
+        res.render('index', { data, splashPage: true });
+        // console.log(dbRes);
+    });
 });
 
 router.get('/index', function (req, res) {
-    res.render('index');
+    Entries.findAll({
+    }).then(dbRes => {
+        // res.json(dbRes);
+        
+        // dbRes = dbRes.get({ plain: true }) // broken
+        const data = dbRes.map(entry => entry.get({ plain: true }));
+
+        res.render('index', { data, splashPage: true});
+        // console.log(dbRes);
+    });
 });
 
 router.get('/search', function (req, res) {
