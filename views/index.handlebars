@@ -13,7 +13,7 @@
   <!--Main-->
   <div>
     <!--Left Col-->
-    <div class="flex flex-col w-full xl:w-full justify-center lg:items-center overflow-y-hidden">
+    <div class="flex flex-col w-full xl:w-full justify-center overflow-y-hidden">
       <h1
         class="my-4 mx-auto text-4xl md:text-3xl text-white opacity-75 font-bold leading-tight text-center md:text-center">
         Check your favorite
@@ -75,19 +75,50 @@
           </a>
         </div>
       </form>
-    </div>
+  
+      <div class="relative p-16 pb-32 rounded text-purple space-y-6 overflow-hidden">
+          <div class="absolute left-0 right-0">
+             <div class="scroller flex space-x-1 whitespace text-gray-300 text-xs">
+                <table>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                       {{#each data}}
+                          <tr>
+                            <td class="px-6 py-4 whitespace-normal">
+                              <div class="flex items-center">
+                                <div class="ml-4">
+                                  <div class="text-sm font-medium text-gray-900">                      
+                                    {{name}}
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-normal">
+                              <div class="text-sm text-center text-gray-500">{{mask}}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-normal">
+                              <div class="text-sm text-center text-gray-500">{{distance}}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-normal">
+                            <div class="text-sm text-center text-gray-500">{{sanitizer}}</div>
+                          </td>
+                          <td class="px-6 py-4 whitespace-normal">
+                            <div class="text-sm text-center text-gray-500">{{vaccineCard}}</div>
+                          </td>
+                          <td class="px-6 py-4 whitespace-normal">
+                            <div class="text-sm text-left text-gray-500">{{comment}}</div>
+                          </td>
+                      {{/each}}
+                   </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+  
   </div>
-  <div class="relative w-4/5 p-16 pb-32 rounded text-purple space-y-6 overflow-hidden">
-  {{!-- scrolling list goes here --}}
-  <div class="absolute bottom-2 left-0 right-0">
-    <div class="scroller flex space-x-1 whitespace text-gray-300 text-xs">
-   <a class="bg-gray-600 py-1 px-3 rounded">scrolling list here</a>
-   <a class="bg-gray-600 py-1 px-3 rounded">scrolling list here</a>
-   <a class="bg-gray-600 py-1 px-3 rounded">scrolling list here</a>
-   <a class="bg-gray-600 py-1 px-3 rounded">scrolling list here</a>
-    </div>
+    
   </div>
-  </div>
+ 
   </div>
 </div>
 </div>
