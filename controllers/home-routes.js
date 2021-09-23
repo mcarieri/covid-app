@@ -37,7 +37,9 @@ router.get('/zipcode/:zipcode', (req, res) => {
         }
     }).then(dbRes => {
         // res.json(dbRes);
-
+        let user = {
+            id: req.session.user
+        }
         // dbRes = dbRes.get({ plain: true }) // broken
         const data = dbRes.map(entry => entry.get({ plain: true }));
 
