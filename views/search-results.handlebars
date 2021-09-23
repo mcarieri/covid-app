@@ -1,0 +1,38 @@
+<div class="flex items-center justify-center h-auto p-5 bg-gray-200">
+  <div class="container">
+    {{#each data}}
+    <div class="flex">
+      <div class="bg-white shadow-xl rounded-lg w-max">
+
+        <ul class="divide-y divide-gray-300">
+          <li class="p-4 hover:bg-gray-50 cursor-pointer ">
+            Name: {{name}}
+          </li>
+          <li class="p-4 hover:bg-gray-50 cursor-pointer">
+            ZipCode: {{zipcode}}
+          </li>
+          <li class="p-4 hover:bg-gray-50 cursor-pointer">
+            Date of visit: {{date}}
+          </li>
+          <li class="p-4 hover:bg-gray-50 cursor-pointer">
+            Date of visit:  Date of visit:  {{mask}}
+          </li>
+          <li class="p-4 hover:bg-gray-50 cursor-pointer">
+            {{distance}}
+          </li>
+          <li class="p-4 hover:bg-gray-50 cursor-pointer">
+            {{sanitizer}}
+          </li>
+          <li class="p-4 hover:bg-gray-50 cursor-pointer">
+            {{vaccineCard}}
+          </li>
+          <li class="p-4 hover:bg-gray-50 cursor-pointer">
+            {{comment}}
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
