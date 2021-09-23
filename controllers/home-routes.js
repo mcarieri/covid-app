@@ -2,6 +2,8 @@ const { Entries } = require('../models');
 let router = require('express').Router();
 const withAuth = require('../utils/withAuth')
 const alreadyLoggedIn = require('../utils/loggedIn')
+const modifyData = require('../utils/modifyData')
+
 
 router.get('/', alreadyLoggedIn, function (req, res) {
     Entries.findAll({
@@ -9,22 +11,26 @@ router.get('/', alreadyLoggedIn, function (req, res) {
         // res.json(dbRes);
         
         // dbRes = dbRes.get({ plain: true }) // broken
-        const data = dbRes.map(entry => entry.get({ plain: true }));
-
-        res.render('index', { data, splashPage: true });
+        let data = dbRes.map(entry => entry.get({ plain: true }));
+        
+       let modifiedData = modifyData(data)
+        
+        res.render('index', { modifiedData, splashPage: true });
         // console.log(dbRes);
     });
 });
 
-router.get('/index', function (req, res) {
+router.get('/index', alreadyLoggedIn, function (req, res) {
     Entries.findAll({
     }).then(dbRes => {
         // res.json(dbRes);
         
         // dbRes = dbRes.get({ plain: true }) // broken
         const data = dbRes.map(entry => entry.get({ plain: true }));
+        
+        let modifiedData = modifyData(data)
 
-        res.render('index', { data, splashPage: true});
+        res.render('index', { modifiedData, splashPage: true});
         // console.log(dbRes);
     });
 });
@@ -56,7 +62,9 @@ router.get('/zipcode/:zipcode', withAuth, (req, res) => {
         // dbRes = dbRes.get({ plain: true }) // broken
         const data = dbRes.map(entry => entry.get({ plain: true }));
 
-        res.render('search-results', { data, id: true});
+        let modifiedData = modifyData(data)
+
+        res.render('search-results', { modifiedData, id: true});
         // console.log(dbRes);
     });
 });

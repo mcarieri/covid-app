@@ -42,7 +42,7 @@
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-            {{#each data}}
+            {{#each modifiedData}}
             <tr>
               <td class="px-6 py-4 whitespace-normal">
                 <div class="flex items-center">
@@ -61,10 +61,10 @@
                 <div class="text-sm text-center text-gray-500">{{date}}</div>
               </td>
               <td class="px-6 py-4 whitespace-normal">
-                <div class="text-sm text-center text-gray-500">{{mask}}</div>
+                <div class="text-sm text-center text-gray-500">{{{mask}}}</div>
               </td>
               <td class="px-6 py-4 whitespace-normal">
-                <div class="text-sm text-center text-gray-500">{{distance}}</div>
+                <div class="text-sm text-center text-gray-500">{{{distance}}}</div>
               </td>
               <td class="px-6 py-4 whitespace-normal">
                 <div class="text-sm text-center text-gray-500">{{sanitizer}}</div>
