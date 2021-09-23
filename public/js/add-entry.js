@@ -38,7 +38,6 @@ async function newEntryHandler() {
     });
 
     if (response.ok) {
-        alert('New entry successful!');
         document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
